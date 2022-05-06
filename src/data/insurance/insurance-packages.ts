@@ -1,6 +1,6 @@
-import { Insurer, TInsurancePackage } from "./definitions";
+import { Insurer, TInsuranceProduct } from "./definitions";
 
-export const insurancePackages: TInsurancePackage[] = [
+export const insuranceProducts: TInsuranceProduct[] = [
   {
     insurerName: Insurer.Protecto,
     description:

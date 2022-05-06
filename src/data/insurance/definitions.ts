@@ -1,4 +1,4 @@
-export type TInsurancePackage = {
+export type TInsuranceProduct = {
   insurerName: Insurer;
   description: string;
   monthlyPrice: number;
