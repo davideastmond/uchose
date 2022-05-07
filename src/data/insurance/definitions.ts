@@ -1,4 +1,5 @@
 export type TInsuranceProduct = {
+  id: string;
   insurerName: Insurer;
   description: string;
   monthlyPrice: number;
