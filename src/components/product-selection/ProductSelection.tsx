@@ -47,9 +47,9 @@ function ProductSelection(props: IProductSelectionProps) {
             label={InsurerFriendlyName[product.insurerName]}
             onClick={handlePanelClick}
           />
-          <Typography>
+          <div className="ProductSelection__priceData">
             {`${product.monthlyPrice.toFixed(2)}$ / month`}
-          </Typography>
+          </div>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>{product.description}</Typography>

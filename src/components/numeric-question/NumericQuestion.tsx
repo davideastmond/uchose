@@ -48,6 +48,7 @@ function NumericQuestion(props: INumericQuestionProps) {
           allowNegative={false}
           decimalScale={0}
           onChange={handleUserInputTextChange}
+          className={`numericInput__textInput`}
         />
       </div>
     </div>

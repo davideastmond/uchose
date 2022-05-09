@@ -19,4 +19,14 @@ code {
 .NavControls__main {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 2%;
+}
+
+.numericInput__textInput {
+  box-sizing: border-box;
+  padding: 3%;
+}
+
+.ProductSelection__priceData {
+  align-self: center;
 }
