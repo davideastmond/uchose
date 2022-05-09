@@ -2,7 +2,26 @@ import { IBaseQuestionProps } from "../definitions";
 import NumericInput from "react-number-format";
 interface INumericQuestionProps extends IBaseQuestionProps {
   onUserInputChanged?: (data: { [keyof: string]: number }) => void;
+  onValidateInput?: (valid: boolean) => void;
+  min?: number;
+  max?: number;
 }
+
+const isValid = ({
+  min,
+  max,
+  value,
+}: {
+  min?: number;
+  max?: number;
+  value: number;
+}): boolean => {
+  if (isNaN(value)) return false;
+
+  if (min && value < min) return false;
+  if (max && value > max) return false;
+  return true;
+};
 
 function NumericQuestion(props: INumericQuestionProps) {
   const handleUserInputTextChange = (
@@ -10,6 +29,14 @@ function NumericQuestion(props: INumericQuestionProps) {
   ) => {
     props.onUserInputChanged &&
       props.onUserInputChanged({ [props.name]: parseInt(event.target.value) });
+    props.onValidateInput &&
+      props.onValidateInput(
+        isValid({
+          min: props.min,
+          max: props.max,
+          value: parseInt(event.target.value),
+        })
+      );
   };
   return (
     <div className="NumericQuestion__main">
@@ -18,7 +45,6 @@ function NumericQuestion(props: INumericQuestionProps) {
       </header>
       <div className="NumericQuestion__userInput">
         <NumericInput
-          value={18}
           allowNegative={false}
           decimalScale={0}
           onChange={handleUserInputTextChange}
